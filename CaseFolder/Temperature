@@ -1,0 +1,9 @@
+set logscale y
+set title 'Temperature'
+set ylabel 'Temperature'
+set xlabel 'Iteration'
+#set xrange [0:20000]
+set yrange [320:335]
+plot "< cat log  | grep -A 5 'Solving for fluid region fluid' | awk '{print $3}' | sed -n '6~7p'" title 'Tfluid' with lines,\
+"< cat log  | grep -A 2 'Solving for solid region metal' | awk '{print $3}' | sed -n '3~4p'" title 'Tsolid' with lines,\
+
